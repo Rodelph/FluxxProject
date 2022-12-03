@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 
 /*
  * @Setup
@@ -61,35 +62,12 @@
  *    
  */
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
-
 
 public class execute {
 
-	public static void main(String[] args) throws FileNotFoundException, IOException
+	public static void main(String[] args) throws FileNotFoundException
 	{	
-		JsonReader jsonReader = Json.createReader(new FileInputStream("./src/RulesData.json"));
-		
-		JsonObject jsonObj = jsonReader.readObject();
-		jsonReader.close();
-		
-		String name = "";
-		Keepers keeper;
-		//String name = (String) keeperz.get("name");
-		for(int i = 1 ; i <= 4 ; i++)
-		{
-			String varname = "rule" + i;
-			JsonObject jsonObj2 = jsonObj.getJsonObject(varname);
-			name = jsonObj2.getString("name");
-			keeper = new Keepers(name);
-			
-			System.out.println(keeper.getKeeperName());
-		}
+		Rules ke = new Rules("rule2");
+		System.out.println(ke.getRuleType());
 	}
 }

@@ -6,9 +6,19 @@ public class Card {
 	private Goals goal;
 	private Rules rule;
 	
+	//Add final values for cards
+	
 	private Stack<Keepers> keeperStack;
 	private Stack<Goals> goalStack;
 	private Stack<Rules> ruleStack;
+	
+	enum RuleType
+	{
+		drawLimitType,
+		keeperLimitType,
+		playLimitType,
+		handLimitType
+	}
 	
 	public Card()
 	{

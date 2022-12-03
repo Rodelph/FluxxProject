@@ -1,22 +1,29 @@
-
 {
 	"rule1":
 	{
-		"name" : "eat shit"
+		"ruleType" : "handLimitType",
+		"name" : "Hand Limit 1",
+		"limitValue" : 1
 	},
 	
 	"rule2":
 	{
-		"name" : "eat shit"
+		"ruleType" : "playLimitType",
+		"name" : "Play Limit 1",
+		"limitValue" : 1
 	},
 	
 	"rule3":
 	{
-		"name" : "eat shits"
+		"ruleType" : "drawLimitType",
+		"name" : "Draw Limit 1",
+		"limitValue" : 1
 	},
 	
 	"rule4":
 	{
-		"name": "eat dicks"
+		"ruleType" : "keeperLimitType",
+		"name": "Keeper Limit 1",
+		"limitValue" : 1
 	}
 }
