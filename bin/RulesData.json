@@ -8,22 +8,106 @@
 	
 	"rule2":
 	{
+		"ruleType" : "handLimitType",
+		"name" : "Hand Limit 2",
+		"limitValue" : 2
+	},
+	
+	"rule3":
+	{
+		"ruleType" : "handLimitType",
+		"name" : "Hand Limit 3",
+		"limitValue" : 3
+	},
+	
+	"rule4":
+	{
+		"ruleType" : "handLimitType",
+		"name" : "Hand Limit 4",
+		"limitValue" : 4
+	},
+	
+	"rule5":
+	{
 		"ruleType" : "playLimitType",
 		"name" : "Play Limit 1",
 		"limitValue" : 1
 	},
 	
-	"rule3":
+	"rule6":
+	{
+		"ruleType" : "playLimitType",
+		"name" : "Play Limit 2",
+		"limitValue" : 2
+	},
+	
+	"rule7":
+	{
+		"ruleType" : "playLimitType",
+		"name" : "Play Limit 3",
+		"limitValue" : 3
+	},
+	
+	"rule8":
+	{
+		"ruleType" : "playLimitType",
+		"name" : "Play Limit 4",
+		"limitValue" : 4
+	},
+	
+	"rule9":
 	{
 		"ruleType" : "drawLimitType",
 		"name" : "Draw Limit 1",
 		"limitValue" : 1
 	},
 	
-	"rule4":
+	"rule10":
+	{
+		"ruleType" : "drawLimitType",
+		"name" : "Draw Limit 2",
+		"limitValue" : 2
+	},
+	
+	"rule11":
+	{
+		"ruleType" : "drawLimitType",
+		"name" : "Draw Limit 3",
+		"limitValue" : 3
+	},
+	
+	"rule12":
+	{
+		"ruleType" : "drawLimitType",
+		"name" : "Draw Limit 4",
+		"limitValue" : 4
+	},
+	
+	"rule13":
 	{
 		"ruleType" : "keeperLimitType",
 		"name": "Keeper Limit 1",
 		"limitValue" : 1
+	},
+	
+	"rule14":
+	{
+		"ruleType" : "keeperLimitType",
+		"name": "Keeper Limit 2",
+		"limitValue" : 2
+	},
+	
+	"rule15":
+	{
+		"ruleType" : "keeperLimitType",
+		"name": "Keeper Limit 3",
+		"limitValue" : 3
+	},
+	
+	"rule16":
+	{
+		"ruleType" : "keeperLimitType",
+		"name": "Keeper Limit 4",
+		"limitValue" : 4
 	}
 }

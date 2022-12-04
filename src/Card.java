@@ -2,11 +2,7 @@ import java.util.Stack;
 
 public class Card {
 	
-	private Keepers keeper;
-	private Goals goal;
-	private Rules rule;
-	
-	//Add final values for cards
+	public static final int totalCards = 54;
 	
 	private Stack<Keepers> keeperStack;
 	private Stack<Goals> goalStack;
@@ -22,23 +18,16 @@ public class Card {
 	
 	public Card()
 	{
-		/*
-		 * Do this in a loop after getting vars from the json
-		this.keepers = new Keepers(...);
-		this.goals = new Goals(...);
-		this.rules = new Rules(...);
-		*/
+		
+		this.keeperStack = new Stack<Keepers>();
+		this.goalStack = new Stack<Goals>();
+		this.ruleStack = new Stack<Rules>();
+
 	}
 
-	public Stack<Keepers> getKeeperStack() {
-		return keeperStack;
-	}
+	public Stack<Keepers> getKeeperStack() { return this.keeperStack; }
 
-	public Stack<Goals> getGoalStack() {
-		return goalStack;
-	}
+	public Stack<Goals> getGoalStack() { return this.goalStack; }
 
-	public Stack<Rules> getRuleStack() {
-		return ruleStack;
-	}
+	public Stack<Rules> getRuleStack() { return this.ruleStack; }
 }

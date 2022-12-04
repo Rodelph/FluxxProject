@@ -1,0 +1,141 @@
+{
+	"goal1":
+	{
+		"goalName" : "Time is Money",
+		"winCondition1" : "Time",
+		"winCondition2" : "Money"
+	},
+	
+	"goal2":
+	{
+		"goalName" : "Chocolate Milk",
+		"winCondition1" : "Chocolate",
+		"winCondition2" : "Milk"
+	},
+	
+	"goal3":
+	{
+		"goalName" : "Milk and Cookies",
+		"winCondition1" : "Milk",
+		"winCondition2" : "Cookies"
+	},
+	
+	"goal4":
+	{
+		"goalName" : "Chocolate Cookies",
+		"winCondition1" : "Chocolate",
+		"winCondition2" : "Cookies"
+	},
+	
+	"goal5":
+	{
+		"goalName" : "Peace (No War)",
+		"winCondition1" : "Peace",
+		"winCondition2" : "War"
+	},
+	
+	"goal6":
+	{
+		"goalName" : "Dream Land",
+		"winCondition1" : "Sleep",
+		"winCondition2" : "Dreams"
+	},
+	
+	"goal7":
+	{
+		"goalName" : "Hippyism",
+		"winCondition1" : "Peace",
+		"winCondition2" : "Love"
+	},
+	
+	"goal8":
+	{
+		"goalName" : "War = Death",
+		"winCondition1" : "War",
+		"winCondition2" : "Death"
+	},
+	
+	"goal9":
+	{
+		"goalName" : "Bed Time",
+		"winCondition1" : "Bed",
+		"winCondition2" : "Time"
+	},
+	
+	"goal10":
+	{
+		"goalName" : "Rocket To The Moon",
+		"winCondition1" : "The Rocket",
+		"winCondition2" : "The Moon"
+	},
+	
+	"goal11":
+	{
+		"goalName" : "Hearts and Minds",
+		"winCondition1" : "Hearts",
+		"winCondition2" : "Minds"
+	},
+	
+	"goal12":
+	{
+		"goalName" : "Night and Day",
+		"winCondition1" : "The Moon",
+		"winCondition2" : "The Sun"
+	},
+	
+	"goal13":
+	{
+		"goalName" : "Winning The Lottery",
+		"winCondition1" : "Dreams",
+		"winCondition2" : "Money"
+	},
+	
+	"goal14":
+	{
+		"goalName" : "The Appliances",
+		"winCondition1" : "Television",
+		"winCondition2" : "The Toaster"
+	},
+	
+	"goal15":
+	{
+		"goalName" : "The Brain and Tv",
+		"winCondition1" : "The Brain",
+		"winCondition2" : "TV"
+	},
+	
+	"goal16":
+	{
+		"goalName" : "Squishy Chocolate",
+		"winCondition1" : "The Sun",
+		"winCondition2" : "Chocolate"
+	},
+	
+	"goal17":
+	{
+		"goalName" : "Death By Chocolate",
+		"winCondition1" : "Death",
+		"winCondition2" : "Chocolate"
+	},
+	
+	"goal18":
+	{
+		"goalName" : "The Rocket Science",
+		"winCondition1" : "The Rocket",
+		"winCondition2" : "Brain"
+	},
+	
+	"goal19":
+	{
+		"goalName" : "Baked Good",
+		"winCondition1" : "Bread",
+		"winCondition2" : "Cookies"
+	},
+	
+	"goal20":
+	{
+		"goalName" : "Toast",
+		"winCondition1" : "The Toaster",
+		"winCondition2" : "Bread"
+	}
+}

@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.util.Stack;
 
 /*
  * @Setup
@@ -67,7 +68,16 @@ public class execute {
 
 	public static void main(String[] args) throws FileNotFoundException
 	{	
-		Rules ke = new Rules("rule2");
-		System.out.println(ke.getRuleType());
+		Deck d = new Deck();
+		d.createDeck();
+		
+	
+		
+		Keepers keep =  (Keepers) d.getDeckStack().firstElement();
+		System.out.println(keep.getKeeperName());
+		
+		//getClass to get the class of the card 
+		
+
 	}
 }
