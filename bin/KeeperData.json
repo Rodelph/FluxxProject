@@ -1,91 +1,91 @@
 {
 	"keeper1" :
 	{
-		"keeperName" : "Dreams"
+		"keeperName" : "Keeper Card: Dreams"
 	},
 	
 	"keeper2" :
 	{
-		"keeperName" : "The Sun"
+		"keeperName" : "Keeper Card: The Sun"
 	},
 	
 	"keeper3" :
 	{
-		"keeperName" : "The Moon"
+		"keeperName" : "Keeper Card: The Moon"
 	},
 	
 	"keeper4" :
 	{
-		"keeperName" : "Peace"
+		"keeperName" : "Keeper Card: Peace"
 	},
 	
 	"keeper5" :
 	{
-		"keeperName" : "Television"
+		"keeperName" : "Keeper Card: Television"
 	},
 	
 	"keeper6" :
 	{
-		"keeperName" : "Chocolate"
+		"keeperName" : "Keeper Card: Chocolate"
 	},
 	
 	"keeper7" :
 	{
-		"keeperName" : "Cookies"
+		"keeperName" : "Keeper Card: Cookies"
 	},
 	
 	"keeper8" :
 	{
-		"keeperName" : "Time"
+		"keeperName" : "Keeper Card: Time"
 	},
 	
 	"keeper9" :
 	{
-		"keeperName" : "Love"
+		"keeperName" : "Keeper Card: Love"
 	},
 	
 	"keeper10" :
 	{
-		"keeperName" : "Sleep"
+		"keeperName" : "Keeper Card: Sleep"
 	},
 	
 	"keeper11" :
 	{
-		"keeperName" : "Bread"
+		"keeperName" : "Keeper Card: Bread"
 	},
 	
 	"keeper12" :
 	{
-		"keeperName" : "Money"
+		"keeperName" : "Keeper Card: Money"
 	},
 	
 	"keeper13" :
 	{
-		"keeperName" : "Milk"
+		"keeperName" : "Keeper Card: Milk"
 	},
 	
 	"keeper14" :
 	{
-		"keeperName" : "The Rocket"
+		"keeperName" : "Keeper Card: The Rocket"
 	},
 	
 	"keeper15" :
 	{
-		"keeperName" : "War"
+		"keeperName" : "Keeper Card: War"
 	},
 	
 	"keeper16" :
 	{
-		"keeperName" : "Death"
+		"keeperName" : "Keeper Card: Death"
 	},
 	
 	"keeper17" :
 	{
-		"keeperName" : "The Brain"
+		"keeperName" : "Keeper Card: The Brain"
 	},
 	
 	"keeper18" :
 	{
-		"keeperName" : "The Toaster"
+		"keeperName" : "Keeper Card: The Toaster"
 	}
 }
