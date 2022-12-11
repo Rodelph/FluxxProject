@@ -22,6 +22,13 @@ public class Game {
 		this.handLimit = 100;
 	}
 	
+	
+	//Nevermind this, just testing my github's pull and request 
+	// I'm using github desktop ftw 
+	//life is easier this way
+	//let's hope it works
+	
+	
 	public Card drawCard()
 	{
 
