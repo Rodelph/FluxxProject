@@ -19,19 +19,28 @@ public class Player {
 		{
 			if(this.cardsInHand.get(i).getClass() == Rules.class)
 			{
-				Rules rule = (Rules) cardsInHand.get(i);
+				Rules rule = (Rules) this.cardsInHand.get(i);
 				System.out.println(rule.getRuleName());
 			}
 			else if(this.cardsInHand.get(i).getClass() == Keepers.class)
 			{
-				Keepers rule = (Keepers) cardsInHand.get(i);
+				Keepers rule = (Keepers) this.cardsInHand.get(i);
 				System.out.println(rule.getKeeperName());
 			}
 			else if(this.cardsInHand.get(i).getClass() == Goals.class)
 			{
-				Goals rule = (Goals) cardsInHand.get(i);
+				Goals rule = (Goals) this.cardsInHand.get(i);
 				System.out.println(rule.getGoalName());
 			}
+		}
+	}
+	
+	public void showKeepers()
+	{
+		for(int i = 0 ; i < this.keepersOnSideTable.size() ; i++)
+		{
+			Keepers keep = this.keepersOnSideTable.get(i);
+			System.out.println(keep.getKeeperName());
 		}
 	}
 	
@@ -44,6 +53,7 @@ public class Player {
 	}
 	
 	public int handSize() { return this.cardsInHand.size(); }
+	
 
 	public String getPlayerName() { return playerName; }
 

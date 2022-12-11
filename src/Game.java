@@ -92,8 +92,24 @@ public class Game {
 		this.players.get(0).showHand();
 //		throwCard(this.players.get(0).throwCard(0));
 //		this.players.get(0).showHand();
-		placeCard(this.players.get(0).throwCard(0));
-		System.out.printf("The keeper limit is %d", this.keeperLimit);
+		//placeCard(this.players.get(0).throwCard(0));
+		//showRules();
+	}
+	
+	public void showRules()
+	{
+		System.out.printf("The current rules are :\nHand Limit :: %d\nPlay Limit :: %d\nKeeper Limit :: %d\nDraw Limit :: %d", this.handLimit, this.playLimit, this.keeperLimit, this.drawLimit);
+	}
+	
+	public void showGoal()
+	{
+		System.out.printf("The goal to achieve is %s and you need the following keepers to win :\nKeeper N°1 :: %s\nKeeper N°2 :: %s",this.goalToAchieve.getGoalName(), this.goalToAchieve.getWinCondition1(), this.goalToAchieve.getWinCondition2());
+	}
+	
+	// Display Input
+	public void help()
+	{
+		
 	}
 
 	// Game State
