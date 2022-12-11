@@ -3,37 +3,14 @@ import java.util.ArrayList;
 public class Player {
 	
 	private String playerName;
-	private int numberOfKeepersInHand;
-	
-	private  ArrayList<Keepers> keepersOnSideTable;
+	private ArrayList<Keepers> keepersOnSideTable;
 	private ArrayList<Card> cardsInHand;
 	
 	public Player(String _playerName)
 	{
 		this.playerName = _playerName;
-		this.numberOfKeepersInHand = 0;
 		this.keepersOnSideTable = new ArrayList<Keepers>();
 		this.cardsInHand = new ArrayList<Card>();
-	}
-
-	public int getNumberOfKeepersInHand() {
-		return numberOfKeepersInHand;
-	}
-
-	public void setNumberOfKeepersInHand(int numberOfKeepersInHand) {
-		this.numberOfKeepersInHand = numberOfKeepersInHand;
-	}
-
-	public String getPlayerName() {
-		return playerName;
-	}
-
-	public ArrayList<Keepers> getKeepersOnTable() {
-		return keepersOnSideTable;
-	}
-
-	public ArrayList<Card> getCardsInHand() {
-		return cardsInHand;
 	}
 	
 	public void showHand()
@@ -56,9 +33,21 @@ public class Player {
 				System.out.println(rule.getGoalName());
 			}
 		}
-		
-		System.out.println(this.cardsInHand.size());
 	}
 	
+	public Card throwCard(int index)
+	{
+		Card cacheCard = this.cardsInHand.get(index);
+		this.cardsInHand.remove(index);
+		
+		return cacheCard;
+	}
 	
+	public int handSize() { return this.cardsInHand.size(); }
+
+	public String getPlayerName() { return playerName; }
+
+	public ArrayList<Keepers> getKeepersOnTable() { return keepersOnSideTable; }
+
+	public ArrayList<Card> getCardsInHand() { return cardsInHand; }	
 }

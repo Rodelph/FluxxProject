@@ -27,6 +27,7 @@ public class Deck {
 			case 0:
 				//this.deckStack.push(_cardsKeepers.get(i));
 				break;
+				
 		}
 		
 		return this.deckStack;
