@@ -1,140 +1,140 @@
 {
 	"goal1":
 	{
-		"goalName" : "Time is Money",
+		"goalName" : "Goal Card: Time is Money",
 		"winCondition1" : "Time",
 		"winCondition2" : "Money"
 	},
 	
 	"goal2":
 	{
-		"goalName" : "Chocolate Milk",
+		"goalName" : "Goal Card: Chocolate Milk",
 		"winCondition1" : "Chocolate",
 		"winCondition2" : "Milk"
 	},
 	
 	"goal3":
 	{
-		"goalName" : "Milk and Cookies",
+		"goalName" : "Goal Card: Milk and Cookies",
 		"winCondition1" : "Milk",
 		"winCondition2" : "Cookies"
 	},
 	
 	"goal4":
 	{
-		"goalName" : "Chocolate Cookies",
+		"goalName" : "Goal Card: Chocolate Cookies",
 		"winCondition1" : "Chocolate",
 		"winCondition2" : "Cookies"
 	},
 	
 	"goal5":
 	{
-		"goalName" : "Peace (No War)",
+		"goalName" : "Goal Card: Peace (No War)",
 		"winCondition1" : "Peace",
 		"winCondition2" : "War"
 	},
 	
 	"goal6":
 	{
-		"goalName" : "Dream Land",
+		"goalName" : "Goal Card: Dream Land",
 		"winCondition1" : "Sleep",
 		"winCondition2" : "Dreams"
 	},
 	
 	"goal7":
 	{
-		"goalName" : "Hippyism",
+		"goalName" : "Goal Card: Hippyism",
 		"winCondition1" : "Peace",
 		"winCondition2" : "Love"
 	},
 	
 	"goal8":
 	{
-		"goalName" : "War = Death",
+		"goalName" : "Goal Card: War = Death",
 		"winCondition1" : "War",
 		"winCondition2" : "Death"
 	},
 	
 	"goal9":
 	{
-		"goalName" : "Bed Time",
+		"goalName" : "Goal Card: Bed Time",
 		"winCondition1" : "Bed",
 		"winCondition2" : "Time"
 	},
 	
 	"goal10":
 	{
-		"goalName" : "Rocket To The Moon",
+		"goalName" : "Goal Card: Rocket To The Moon",
 		"winCondition1" : "The Rocket",
 		"winCondition2" : "The Moon"
 	},
 	
 	"goal11":
 	{
-		"goalName" : "Hearts and Minds",
+		"goalName" : "Goal Card: Hearts and Minds",
 		"winCondition1" : "Hearts",
 		"winCondition2" : "Minds"
 	},
 	
 	"goal12":
 	{
-		"goalName" : "Night and Day",
+		"goalName" : "Goal Card: Night and Day",
 		"winCondition1" : "The Moon",
 		"winCondition2" : "The Sun"
 	},
 	
 	"goal13":
 	{
-		"goalName" : "Winning The Lottery",
+		"goalName" : "Goal Card: Winning The Lottery",
 		"winCondition1" : "Dreams",
 		"winCondition2" : "Money"
 	},
 	
 	"goal14":
 	{
-		"goalName" : "The Appliances",
+		"goalName" : "Goal Card: The Appliances",
 		"winCondition1" : "Television",
 		"winCondition2" : "The Toaster"
 	},
 	
 	"goal15":
 	{
-		"goalName" : "The Brain and Tv",
+		"goalName" : "Goal Card: The Brain and Tv",
 		"winCondition1" : "The Brain",
 		"winCondition2" : "TV"
 	},
 	
 	"goal16":
 	{
-		"goalName" : "Squishy Chocolate",
+		"goalName" : "Goal Card: Squishy Chocolate",
 		"winCondition1" : "The Sun",
 		"winCondition2" : "Chocolate"
 	},
 	
 	"goal17":
 	{
-		"goalName" : "Death By Chocolate",
+		"goalName" : "Goal Card: Death By Chocolate",
 		"winCondition1" : "Death",
 		"winCondition2" : "Chocolate"
 	},
 	
 	"goal18":
 	{
-		"goalName" : "The Rocket Science",
+		"goalName" : "Goal Card: The Rocket Science",
 		"winCondition1" : "The Rocket",
 		"winCondition2" : "Brain"
 	},
 	
 	"goal19":
 	{
-		"goalName" : "Baked Good",
+		"goalName" : "Goal Card: Baked Good",
 		"winCondition1" : "Bread",
 		"winCondition2" : "Cookies"
 	},
 	
 	"goal20":
 	{
-		"goalName" : "Toast",
+		"goalName" : "Goal Card: Toast",
 		"winCondition1" : "The Toaster",
 		"winCondition2" : "Bread"
 	}

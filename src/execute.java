@@ -62,31 +62,22 @@ public class execute {
 //		System.out.println(card.getKeeperName());
 		//getClass to get the class of the card 
 		
-//		Game game;
-//		int numberofplayers = 0;
-//		try(Scanner scan = new Scanner(System.in)) 
-//		{
-//			while (numberofplayers < 2 || numberofplayers > 6)
-//			{
-//				numberofplayers = scan.nextInt(); 
-//			}
-//			game = new Game(numberofplayers);
-//
-//			while(game.isGameRunning())
-//			{
-//				game.run(scan.nextInt());
-//			}
-//			
-//			scan.close();
-//		}
-		
-
-		Deck d = new Deck();
-		
-		for ( int i=0; i<109;i++)
+		Game game;
+		int numberofplayers = 0;
+		try(Scanner scan = new Scanner(System.in)) 
 		{
-			System.out.println("Card number: "+i+" "+d.getDeckStack().get(i));
+			while (numberofplayers < 2 || numberofplayers > 6)
+			{
+				numberofplayers = scan.nextInt(); 
+			}
+			game = new Game(numberofplayers);
+
+			while(game.isGameRunning())
+			{
+				game.run(scan.nextInt());
+			}
+			
+			scan.close();
 		}
 	}
-	
 }

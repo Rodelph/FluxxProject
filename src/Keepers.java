@@ -23,5 +23,5 @@ public class Keepers extends Card{
 		this.keeperName = this.jsonObjParser.getString("keeperName");
 	}
 
-	public String getKeeperName() { return this.keeperName; }
+	public String getName() { return this.keeperName; }
 }

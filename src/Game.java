@@ -103,7 +103,7 @@ public class Game {
 	
 	public void showGoal()
 	{
-		System.out.printf("The goal to achieve is %s and you need the following keepers to win :\nKeeper N°1 :: %s\nKeeper N°2 :: %s",this.goalToAchieve.getGoalName(), this.goalToAchieve.getWinCondition1(), this.goalToAchieve.getWinCondition2());
+		System.out.printf("The goal to achieve is %s and you need the following keepers to win :\nKeeper N°1 :: %s\nKeeper N°2 :: %s",this.goalToAchieve.getName(), this.goalToAchieve.getWinCondition1(), this.goalToAchieve.getWinCondition2());
 	}
 	
 	// Display Input
