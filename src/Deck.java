@@ -39,18 +39,21 @@ public class Deck {
 		{
 			this.keep = new Keepers(i);
 			this.card.getKeeperStack().push(keep);
+			//this.deckStack.push(keep);
 		}
 		
 		for(int i = 1 ; i <= Rules.totalRules ; i++)
 		{
 			this.rule = new Rules(i);
 			this.card.getRuleStack().push(rule);
+			//this.deckStack.push(rule);
 		}
 		
 		for(int i = 1 ; i <= Goals.totalGoals ; i++)
 		{
 			this.goal = new Goals(i);
 			this.card.getGoalStack().push(goal);
+			//this.deckStack.push(goal);
 		}
 		
 		//this.deckStack = shuffle(this.card.getKeeperStack(), this.card.getRuleStack(), this.card.getGoalStack());
