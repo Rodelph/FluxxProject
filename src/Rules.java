@@ -71,5 +71,5 @@ public class Rules extends Card
 	
 	public String getRuleType() { return this.ruleType; }
 	
-	public String getRuleName() { return this.ruleName; }
+	public String getName() { return this.ruleName; }
 }

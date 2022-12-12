@@ -30,5 +30,5 @@ public class Goals extends Card
 
 	public String getWinCondition2() { return this.winCondition2; }
 
-	public String getGoalName()      { return this.goalName ; }
+	public String getName()          { return this.goalName ; }
 }

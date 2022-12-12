@@ -18,11 +18,9 @@ public class Card {
 	
 	public Card()
 	{
-		
 		this.keeperStack = new Stack<Keepers>();
 		this.goalStack = new Stack<Goals>();
 		this.ruleStack = new Stack<Rules>();
-
 	}
 
 	public Stack<Keepers> getKeeperStack() { return this.keeperStack; }

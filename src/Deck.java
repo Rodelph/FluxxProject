@@ -34,22 +34,22 @@ public class Deck {
 	***/
 	public Stack<Card> shuffle(Stack<Card> _cards)
 	{
-		Card[] temporary_array = new Card[54];
+		Card[] temporary_array = new Card[Card.totalCards];
 		Stack<Card> result_Stack = new Stack<Card>(); 
 
 		 _cards.copyInto(temporary_array);
 		
-		for (int i=0; i<100; i++)
+		for (int i=0; i < Card.totalCards; i++)
 		{
 			//i chose this instead of the random function to avoid importing packages and for simplicity
 			//i created a new instance of Random in every iteration for better Randomness
 			Random rand = new Random(); 
-			int first_random_index =  rand.nextInt(54);
-			int second_random_index = rand.nextInt(54);
+			int first_random_index =  rand.nextInt(Card.totalCards);
+			int second_random_index = rand.nextInt(Card.totalCards);
 			temporary_array= array_2_elements_swapper(temporary_array, first_random_index, second_random_index);
 		}
 		
-		for (int i=0; i<54;i++) //pushing the shuffled array's cards into the return stack 
+		for (int i=0; i < Card.totalCards; i++) //pushing the shuffled array's cards into the return stack 
 		{
 			result_Stack.push(temporary_array[i]); 
 		}
@@ -77,10 +77,10 @@ public class Deck {
 			this.deckStack.push(goal);
 		}
 		System.err.println("Deck Created Successfully!");
-		//System.out.println(deckStack);
-		deckStack= shuffle(deckStack);
+		
+		this.deckStack= shuffle(this.deckStack);
 		System.err.println("Deck Shuffled Successfully!");
-		//System.out.println(deckStack);
+		
 		return this.deckStack;
 	}
 	
