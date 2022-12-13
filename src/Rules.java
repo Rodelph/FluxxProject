@@ -16,8 +16,15 @@ public class Rules extends Card
 	private int drawLimit, keeperLimit,
 				handLimit, playLimit;
 	
+	//https://docs.oracle.com/javaee/7/api/javax/json/package-summary.html
 	//https://www.baeldung.com/java-string-to-enum
 	
+	/**
+	 * 
+	 * @param i
+	 * @throws FileNotFoundException
+	 * 
+	 */
 	public Rules(int i) throws FileNotFoundException
 	{
 		this.jsonReader = Json.createReader(new FileInputStream("./src/RulesData.json"));
@@ -33,26 +40,26 @@ public class Rules extends Card
 		switch(this._type)
 		{
 			case drawLimitType:
-				this.ruleType = this._type.toString();
-				this.ruleName = jsonObjParser.getString("name");
+				this.ruleType  = this._type.toString();
+				this.ruleName  = jsonObjParser.getString("name");
 				this.drawLimit = jsonObjParser.getInt("limitValue");
 				break;
 			
 			case keeperLimitType:
-				this.ruleType = this._type.toString();
-				this.ruleName = jsonObjParser.getString("name");
+				this.ruleType    = this._type.toString();
+				this.ruleName    = jsonObjParser.getString("name");
 				this.keeperLimit = jsonObjParser.getInt("limitValue");
 				break;
 				
 			case handLimitType:
-				this.ruleType = this._type.toString();
-				this.ruleName = jsonObjParser.getString("name");
+				this.ruleType  = this._type.toString();
+				this.ruleName  = jsonObjParser.getString("name");
 				this.handLimit = jsonObjParser.getInt("limitValue");
 				break;
 				
 			case playLimitType:
-				this.ruleType = this._type.toString();
-				this.ruleName = jsonObjParser.getString("name");
+				this.ruleType  = this._type.toString();
+				this.ruleName  = jsonObjParser.getString("name");
 				this.playLimit = jsonObjParser.getInt("limitValue");
 				break;
 		}

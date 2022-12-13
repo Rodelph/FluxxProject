@@ -14,8 +14,15 @@ public class Deck {
 		this.deckStack = new Stack<Card>();
 		createDeck();
 	}
-	
-	//This function is created to simply swap 2 elements in a given array made of Card elements.
+
+	/**
+	 * This function is created to simply swap 2 elements in a given array 
+	 * made of Card elements. 
+	 * @param array_to_swap
+	 * @param position_of_element_1
+	 * @param position_of_element_2
+	 * @return
+	 */
 	public Card[] array_2_elements_swapper(Card[] array_to_swap, int position_of_element_1, int position_of_element_2)
 	{	
 		Card temp;
@@ -34,12 +41,12 @@ public class Deck {
 	***/
 	public Stack<Card> shuffle(Stack<Card> _cards)
 	{
-		Card[] temporary_array = new Card[Card.totalCards];
+		Card[] temporary_array = new Card[_cards.size()];
 		Stack<Card> result_Stack = new Stack<Card>(); 
 
 		 _cards.copyInto(temporary_array);
 		
-		for (int i=0; i < Card.totalCards; i++)
+		for (int i=0; i < _cards.size(); i++)
 		{
 			//i chose this instead of the random function to avoid importing packages and for simplicity
 			//i created a new instance of Random in every iteration for better Randomness
@@ -49,7 +56,7 @@ public class Deck {
 			temporary_array= array_2_elements_swapper(temporary_array, first_random_index, second_random_index);
 		}
 		
-		for (int i=0; i < Card.totalCards; i++) //pushing the shuffled array's cards into the return stack 
+		for (int i=0; i < _cards.size(); i++) //pushing the shuffled array's cards into the return stack 
 		{
 			result_Stack.push(temporary_array[i]); 
 		}
@@ -76,10 +83,10 @@ public class Deck {
 			this.goal = new Goals(i);
 			this.deckStack.push(goal);
 		}
-		System.err.println("Deck Created Successfully!");
+		//System.err.println("Deck Created Successfully!");
 		
 		this.deckStack= shuffle(this.deckStack);
-		System.err.println("Deck Shuffled Successfully!");
+		//System.err.println("Deck Shuffled Successfully!");
 		
 		return this.deckStack;
 	}

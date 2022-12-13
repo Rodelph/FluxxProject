@@ -20,17 +20,17 @@ public class Player {
 			if(this.cardsInHand.get(i).getClass() == Rules.class)
 			{
 				Rules rule = (Rules) this.cardsInHand.get(i);
-				System.out.println(rule.getName());
+				System.out.printf("%d - %s",i, rule.getName());
 			}
 			else if(this.cardsInHand.get(i).getClass() == Keepers.class)
 			{
-				Keepers rule = (Keepers) this.cardsInHand.get(i);
-				System.out.println(rule.getName());
+				Keepers keeper = (Keepers) this.cardsInHand.get(i);
+				System.out.printf("%d - %s",i, keeper.getName());
 			}
 			else if(this.cardsInHand.get(i).getClass() == Goals.class)
 			{
-				Goals rule = (Goals) this.cardsInHand.get(i);
-				System.out.println(rule.getName());
+				Goals goal = (Goals) this.cardsInHand.get(i);
+				System.out.printf("%d - %s",i, goal.getName());
 			}
 		}
 	}
@@ -40,7 +40,7 @@ public class Player {
 		for(int i = 0 ; i < this.keepersOnSideTable.size() ; i++)
 		{
 			Keepers keep = this.keepersOnSideTable.get(i);
-			System.out.println(keep.getName());
+			System.out.printf("%d - %s",i, keep.getName());
 		}
 	}
 	
