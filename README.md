@@ -1,6 +1,6 @@
 # Fluxx Game Project
 
-<img src="./res/game_ui.png" width="65%">
+<img src="./res/game_ui.png" width="80%">
 
 <br>
 Project Made By :
