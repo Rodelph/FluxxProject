@@ -32,7 +32,7 @@ public class Player {
 			else if(this.cardsInHand.get(i).getClass() == Goals.class)
 			{
 				Goals goal = (Goals) this.cardsInHand.get(i);
-				System.out.printf(Game.ANSI_RED + "%d - %s\n" + Game.ANSI_RESET,i, goal.getName());
+				System.out.printf(Game.ANSI_PURPLE + "%d - %s\n" + Game.ANSI_RESET,i, goal.getName());
 			}
 		}
 		

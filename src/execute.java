@@ -47,7 +47,7 @@ public class execute
 				numberofplayers = scan.nextInt(); 
 			}
 			
-			//loadingAnimation();
+			loadingAnimation();
 			
 			game = new Game(numberofplayers);
 
