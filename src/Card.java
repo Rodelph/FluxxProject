@@ -8,14 +8,6 @@ public class Card {
 	private Stack<Goals> goalStack;
 	private Stack<Rules> ruleStack;
 	
-	enum RuleType
-	{
-		drawLimitType,
-		keeperLimitType,
-		playLimitType,
-		handLimitType
-	}
-	
 	public Card()
 	{
 		this.keeperStack = new Stack<Keepers>();

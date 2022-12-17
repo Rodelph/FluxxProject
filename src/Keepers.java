@@ -1,7 +1,4 @@
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-
-import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 
@@ -15,11 +12,7 @@ public class Keepers extends Card{
 	
 	public Keepers(int i) throws FileNotFoundException
 	{	
-		this.jsonReader = Json.createReader(new FileInputStream("./src/KeeperData.json"));
-		this.jsonObj = this.jsonReader.readObject();
-		this.jsonReader.close();
-		
-		this.jsonObjParser = this.jsonObj.getJsonObject("keeper"+i);
+		this.jsonObjParser = Utility.jsonFileReader(this.jsonReader, this.jsonObj, Utility.keeperDataJsonFile, "keeper", i);
 		this.keeperName = this.jsonObjParser.getString("keeperName");
 	}
 

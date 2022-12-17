@@ -3,27 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Game{
-	
-	enum GameState 
-	{
-		DrawPhase,
-		ChoseCardPhase,
-		PlayPhase,
-		EndTurnPhase
-	}
-
-	//https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
-	public static final String ANSI_RESET 				= "\u001B[0m";
-	public static final String ANSI_RED 				= "\u001B[31m";
-	public static final String ANSI_GREEN 				= "\u001B[32m";
-	public static final String ANSI_YELLOW 				= "\u001B[33m";
-	public static final String ANSI_PURPLE              = "\u001B[35m";
-	public static final String ANSI_CYAN 				= "\u001B[36m";
-	public static final String ANSI_CYAN_BACKGROUND 	= "\u001B[46m";
-	public static final String ANSI_RED_BACKGROUND 		= "\u001B[41m";
-	public static final String ANSI_GREEN_BACKGROUND 	= "\u001B[42m";
-	public static final String ANSI_YELLOW_BACKGROUND 	= "\u001B[43m";
+public class Game{	
 	
 	private GameState game;
 	
@@ -84,14 +64,14 @@ public class Game{
 				this.players.get(j).getCardsInHand().add(drawCard());
 		}
 		
-		System.out.println(ANSI_CYAN + "Three cards have been distributed for each player!\n" + ANSI_RESET
-						 + "The game will start with Player 1 drawing a card." + ANSI_RED 
-						 + " Press a key to continue !" + ANSI_RESET);
+		System.out.println(Utility.ANSI_CYAN + "Three cards have been distributed for each player!\n" + Utility.ANSI_RESET
+						 + "The game will start with Player 1 drawing a card." + Utility.ANSI_RED 
+						 + " Press a key to continue !" + Utility.ANSI_RESET);
 	}
 	
 	public void printCommands()
 	{
-		System.out.println(ANSI_RED + "\nCommands :\n" + ANSI_RESET
+		System.out.println(Utility.ANSI_RED + "\nCommands :\n" + Utility.ANSI_RESET
 						 + "1- To show Keepers on your side press 'K'\n"
 						 + "2- To show your Hand press 'P' \n"
 						 + "3- To show the goal of the game press 'G'\n"
@@ -128,7 +108,7 @@ public class Game{
 		{
 			Rules rule = (Rules)_card;
 
-			Card.RuleType ruleType = Card.RuleType.valueOf(rule.getRuleType());
+			RuleType ruleType = RuleType.valueOf(rule.getRuleType());
 			
 			switch(ruleType)
 			{
@@ -164,32 +144,32 @@ public class Game{
 			if((_userInput.toLowerCase()).equals("p"))
 			{
 				this.currentPlayer.showHand();
-				System.out.println(Game.ANSI_RED + "Press a key number to continue !" + Game.ANSI_RESET);
+				System.out.println(Utility.ANSI_RED + "Press a key number to continue !" + Utility.ANSI_RESET);
 			}
 			if((_userInput.toLowerCase()).equals("k"))
 			{
 				this.currentPlayer.showKeepers();
-				System.out.println(Game.ANSI_RED + "Press a key number to continue !" + Game.ANSI_RESET);
+				System.out.println(Utility.ANSI_RED + "Press a key number to continue !" + Utility.ANSI_RESET);
 			}
 			if((_userInput.toLowerCase()).equals("r"))
 			{
 				this.showRules();
-				System.out.println(Game.ANSI_RED + "Press a key number to continue !" + Game.ANSI_RESET);
+				System.out.println(Utility.ANSI_RED + "Press a key number to continue !" + Utility.ANSI_RESET);
 			}
 			if((_userInput.toLowerCase()).equals("h"))
 			{
 				this.showHelp();
-				System.out.println(Game.ANSI_RED + "Press a key number to continue !" + Game.ANSI_RESET);
+				System.out.println(Utility.ANSI_RED + "Press a key number to continue !" + Utility.ANSI_RESET);
 			}
 			if((_userInput.toLowerCase()).equals("g"))
 			{
 				this.showGoal();
-				System.out.println(Game.ANSI_RED + "Press a key number to continue !" + Game.ANSI_RESET);
+				System.out.println(Utility.ANSI_RED + "Press a key number to continue !" + Utility.ANSI_RESET);
 			}
 			if((_userInput.toLowerCase()).equals("c"))
 			{
 				this.printCommands();
-				System.out.println(Game.ANSI_RED + "Press a key number to continue !" + Game.ANSI_RESET);
+				System.out.println(Utility.ANSI_RED + "Press a key number to continue !" + Utility.ANSI_RESET);
 			}
 		}
 		else if(_userInput.matches(".*\\d.*"))
@@ -201,16 +181,16 @@ public class Game{
 				case DrawPhase:
 					
 					this.currentPlayer = this.players.get(this.indexPlayer);
-					System.out.printf(ANSI_CYAN + "\nThe player %s will now draw %d card.\n" 
-					                + ANSI_RESET, this.currentPlayer.getPlayerName(), this.drawLimit);
+					System.out.printf(Utility.ANSI_CYAN + "\nThe player %s will now draw %d card.\n" 
+					                + Utility.ANSI_RESET, this.currentPlayer.getPlayerName(), this.drawLimit);
 					
 					for(int i = 1; i <= this.drawLimit ; i++)
 						this.currentPlayer.getCardsInHand().add(drawCard());
 					
 					this.currentPlayer.showHand();
 
-					System.out.println("\nYou will now switch to Chosing Card Phase " + ANSI_RED 
-							         + "press a key to continue !" + ANSI_RESET);
+					System.out.println("\nYou will now switch to Chosing Card Phase " + Utility.ANSI_RED 
+							         + "press a key to continue !" + Utility.ANSI_RESET);
 					
 					this.game = GameState.ChoseCardPhase;
 					break;
@@ -219,17 +199,23 @@ public class Game{
 					
 					if((this.currentPlayer.handSize() > this.handLimit) == true)
 					{
-						System.out.println(ANSI_RED + "You have more cards in your hand than the hand limit rule ! Reduce your hand !" + ANSI_RESET);
-						System.out.printf(ANSI_YELLOW +"The hand limit is set to %d so you need to throw %d !\n" + ANSI_RESET, this.handLimit, (this.currentPlayer.handSize() - this.handLimit));
+						System.out.println(Utility.ANSI_RED + "You have more cards in your hand than the hand limit rule ! Reduce your hand !" + Utility.ANSI_RESET);
+						System.out.printf(Utility.ANSI_YELLOW +"The hand limit is set to %d so you need to throw %d !\n" + Utility.ANSI_RESET, this.handLimit, (this.currentPlayer.handSize() - this.handLimit));
 						
 						while(this.currentPlayer.handSize() > this.handLimit)
 						{
 							System.out.printf("You need to throw %d more time(s)\n", (this.currentPlayer.handSize() - this.handLimit));
 							int handIndex = scan.nextInt();
+							
+							if(handIndex > this.currentPlayer.handSize() - 1)
+							{
+								System.out.println(Utility.ANSI_RED + "The card that you selected does not exist !" + Utility.ANSI_RESET);
+								handIndex = scan.nextInt();
+							}
 							this.throwCard(this.currentPlayer.throwCard(handIndex));
 							this.currentPlayer.showHand();
 						}
-						System.out.println(ANSI_CYAN + "Finished removing extra cards in hand. Choose the corresponding number of the card to play !" + ANSI_RESET);
+						System.out.println(Utility.ANSI_CYAN + "Finished removing extra cards in hand !" + Utility.ANSI_RESET);
 					}
 			
 					if((this.currentPlayer.getKeepersOnTable().size() > this.keeperLimit) == true)
@@ -237,7 +223,7 @@ public class Game{
 						System.out.println("You have more keepers on the table than the keeper limit rule ! Time to reduct it !");
 						System.out.printf("The keeper limit is set to %d so you need to throw %d !\n", this.keeperLimit, (this.currentPlayer.getKeepersOnTable().size() - this.keeperLimit));
 						
-						while((this.currentPlayer.getKeepersOnTable().size() - this.keeperLimit) > this.keeperLimit)
+						while(this.currentPlayer.getKeepersOnTable().size() > this.keeperLimit)
 						{
 							System.out.printf("You need to throw %d more time(s)\n", (this.currentPlayer.getKeepersOnTable().size() - this.keeperLimit));
 							int keeperIndex = scan.nextInt();
@@ -245,24 +231,22 @@ public class Game{
 							this.currentPlayer.showHand();
 							this.currentPlayer.getKeepersOnTable().remove(keeperIndex);
 						}
-						System.out.println(ANSI_CYAN + "Finished removing extra keepers. Choose the corresponding number of the card to play !" + ANSI_RESET);
+						System.out.println(Utility.ANSI_CYAN + "Finished removing extra keepers !" + Utility.ANSI_RESET);
 					}
 					
 					if(cardIndex >= this.currentPlayer.getCardsInHand().size())
 					{
-						System.out.println(ANSI_RED + "The index of the chosen card is bigger than the hand size ! "
-										 + "So the chosen card will be the last card on your right." + ANSI_RESET);	
+						System.out.println(Utility.ANSI_RED + "The index of the chosen card is bigger than the hand size ! "
+										 + "So the chosen card will be the last card on your right." + Utility.ANSI_RESET);	
 						cardIndex = scan.nextInt();
 					}
-					
+					System.out.printf(Utility.ANSI_CYAN + "You are now in play phase. Please select the card to be played !\n" + Utility.ANSI_RESET);
 					this.game = GameState.PlayPhase;
 					break;
 					
 					
 				case PlayPhase:
-					
-					System.out.printf(ANSI_CYAN + "You are now in play phase.\n" + ANSI_RESET);
-					
+
 					for(int i = 1 ; i <= this.playLimit; i++)
 					{
 						if(this.currentPlayer.getCardsInHand().isEmpty())
@@ -278,18 +262,18 @@ public class Game{
 						{
 							Rules ruleCache = (Rules)this.cardCache;
 							
-							System.out.printf(ANSI_CYAN + "You will now play the card that you selected :: %s\n" + ANSI_RESET, ruleCache.getName());
+							System.out.printf(Utility.ANSI_CYAN + "You will now play the card that you selected :: %s\n" + Utility.ANSI_RESET, ruleCache.getName());
 							
-							Card.RuleType ruleType = Card.RuleType.valueOf(ruleCache.getRuleType());
+							RuleType ruleType = RuleType.valueOf(ruleCache.getRuleType());
 							
-							if(ruleType == Card.RuleType.drawLimitType)
+							if(ruleType == RuleType.drawLimitType)
 							{
 								this.drawLimit = ruleCache.getDrawLimit();
 								for(int j = 1 ; j < this.drawLimit; j++)
 									this.currentPlayer.getCardsInHand().add(drawCard());
 							}
 							
-							if(ruleType == Card.RuleType.handLimitType)
+							if(ruleType == RuleType.handLimitType)
 							{
 								this.handLimit = ruleCache.getHandLimit();
 								if((this.currentPlayer.handSize() > this.handLimit) == true)
@@ -302,11 +286,11 @@ public class Game{
 										this.currentPlayer.showHand();
 									}
 									
-									System.out.println(ANSI_CYAN + "Finished removing extra cards in hand. Choose the corresponding number of the card to play !" + ANSI_RESET);
+									System.out.println(Utility.ANSI_CYAN + "Finished removing extra cards in hand. Choose the corresponding number of the card to play !" + Utility.ANSI_RESET);
 								}
 							}
 							
-							if(ruleType == Card.RuleType.keeperLimitType)
+							if(ruleType == RuleType.keeperLimitType)
 							{
 								this.keeperLimit = ruleCache.getKeeperLimit();
 								if((this.currentPlayer.getKeepersOnTable().size() > this.keeperLimit) == true)
@@ -321,11 +305,11 @@ public class Game{
 										this.currentPlayer.getKeepersOnTable().remove(cacheKeeperIndex);
 										this.currentPlayer.showKeepers();
 									}	
-									System.out.println(ANSI_CYAN + "Finished removing extra keepers. Choose the corresponding number of the card to play !" + ANSI_RESET);
+									System.out.println(Utility.ANSI_CYAN + "Finished removing extra keepers. Choose the corresponding number of the card to play !" + Utility.ANSI_RESET);
 								}
 							}
 							
-							if(ruleType == Card.RuleType.playLimitType)
+							if(ruleType == RuleType.playLimitType)
 							{
 								this.playLimit = ruleCache.getPlayLimit();
 								{
@@ -350,7 +334,7 @@ public class Game{
 						{
 							Goals goalCache = (Goals) this.cardCache;
 							
-							System.out.printf(ANSI_CYAN + "You will now play the card that you selected :: %s\n" + ANSI_RESET, goalCache.getName());
+							System.out.printf(Utility.ANSI_CYAN + "You will now play the card that you selected :: %s\n" + Utility.ANSI_RESET, goalCache.getName());
 							
 							if(this.goalToAchieve == null)
 								this.goalToAchieve = (Goals) this.cardCache;
@@ -365,14 +349,14 @@ public class Game{
 						{
 							Keepers keeperCache = (Keepers) this.cardCache;
 							
-							System.out.printf(ANSI_CYAN + "You will now play the card that you selected :: %s\n" + ANSI_RESET, keeperCache.getName());
+							System.out.printf(Utility.ANSI_CYAN + "You will now play the card that you selected :: %s\n" + Utility.ANSI_RESET, keeperCache.getName());
 							
 							this.currentPlayer.getKeepersOnTable().add((Keepers) this.cardCache);
 							if(this.goalToAchieve != null)
 							{
 								if(gameWinningCondition())
 								{
-									System.out.printf(ANSI_GREEN + "\n%s has won the game !\n" + ANSI_RESET, this.currentPlayer.getPlayerName());
+									System.out.printf(Utility.ANSI_GREEN + "\n%s has won the game !\n" + Utility.ANSI_RESET, this.currentPlayer.getPlayerName());
 									Thread.sleep(3000);
 									this.gameIsRunning = false;
 								}
@@ -380,15 +364,15 @@ public class Game{
 						}
 						
 						this.currentPlayer.showHand();
-						System.out.println(Game.ANSI_RED + "Press a key number to continue !" + Game.ANSI_RESET);
+						System.out.println(Utility.ANSI_RED + "Press a key number to continue !" + Utility.ANSI_RESET);
 					}
 					this.game = GameState.EndTurnPhase;
 					break;
 					
 				case EndTurnPhase:
 					
-					System.out.println(ANSI_RED + "You will now end your turn, please press a key number to end your turn !\n" 
-					                 + ANSI_RESET);
+					System.out.println(Utility.ANSI_RED + "You will now end your turn, please press a key number to end your turn !\n" 
+					                 + Utility.ANSI_RESET);
 					
 					this.indexPlayer++;
 					if(this.indexPlayer == this.numberOfPlayers)
@@ -414,8 +398,8 @@ public class Game{
 	
 	public void showRules()
 	{
-		System.out.printf(ANSI_CYAN_BACKGROUND + "The current rules are :\n" + ANSI_RESET + ANSI_YELLOW +"Hand Limit :: %d\n"
-				        + "Play Limit :: %d\nKeeper Limit :: %d\nDraw Limit :: %d\n" + ANSI_RESET, this.handLimit, this.playLimit, this.keeperLimit, this.drawLimit);
+		System.out.printf(Utility.ANSI_CYAN_BACKGROUND + "The current rules are :\n" + Utility.ANSI_RESET + Utility.ANSI_YELLOW +"Hand Limit :: %d\n"
+				        + "Play Limit :: %d\nKeeper Limit :: %d\nDraw Limit :: %d\n" + Utility.ANSI_RESET, this.handLimit, this.playLimit, this.keeperLimit, this.drawLimit);
 	}
 	
 	public void showGoal()
@@ -423,37 +407,37 @@ public class Game{
 		if(this.goalToAchieve == null)
 			System.out.println("No goal has been placed yet !");
 		else
-			System.out.printf(ANSI_CYAN_BACKGROUND + "The goal to achieve is %s and you need the following keepers to win :\n" + ANSI_RESET
-				        + ANSI_RED_BACKGROUND +"Keeper Number 1 :: %s\nKeeper Number 2 :: %s\n" + ANSI_RESET, this.goalToAchieve.getName(), this.goalToAchieve.getWinCondition1(), this.goalToAchieve.getWinCondition2());
+			System.out.printf(Utility.ANSI_CYAN_BACKGROUND + "The goal to achieve is %s and you need the following keepers to win :\n" + Utility.ANSI_RESET
+				        + Utility.ANSI_RED_BACKGROUND +"Keeper Number 1 :: %s\nKeeper Number 2 :: %s\n" + Utility.ANSI_RESET, this.goalToAchieve.getName(), this.goalToAchieve.getWinCondition1(), this.goalToAchieve.getWinCondition2());
 	}
 	
 	// Display Input
 	public void showHelp()
 	{
-		System.out.println(ANSI_CYAN + "\n@Setup\n" + ANSI_RESET
+		System.out.println(Utility.ANSI_CYAN + "\n@Setup\n" + Utility.ANSI_RESET
 				         + "- Place the basic rules card in the center\n"
 				 		 + "- Shuffle the deck and deal three cards to each player\n"
 				         + "- Place the remainder of the deck face down next to the basic rules next to the basic rules to form a draw pile\n"
 				 		 + "- At the start of the game there will be no goal or new rule cards in play but they will be added as the game progresses\n"
-				         + ANSI_CYAN +"\n@Card Types\n" + ANSI_RESET
-				 		 + ANSI_YELLOW + "@Basic Rules (Card with orange stripes)@\n" + ANSI_RESET
+				         + Utility.ANSI_CYAN +"\n@Card Types\n" + Utility.ANSI_RESET
+				 		 + Utility.ANSI_YELLOW + "@Basic Rules (Card with orange stripes)@\n" + Utility.ANSI_RESET
 				         + "- This is the starting point, the foundation on which the rest of the game is built.\n"
 				         + "- These initial rules will be superseded by \"new rules\" during the course of play, but this card should remain on the table at all times.\n"
 				         + "  The basic rules are :\n"
 				         + "	- Draw 1 card per turn\n"
 				         + "	- Play 1 card per turn (with no other restrictions such as a Hand or Keeper Limits).\n"
-				         + ANSI_PURPLE + "\n@Goal (Pink cards)@\n" + ANSI_RESET
+				         + Utility.ANSI_PURPLE + "\n@Goal (Pink cards)@\n" + Utility.ANSI_RESET
 				         + "- These cards show the specific Keepers you must have on the table in front of you in order to win.\n"
 				         + "- To play a goal, place it face  up in the center of the table, discarding the previous Goal (if any).\n"
 				         + "  The game begins with no goal in play, so no one can win until one is played.\n"
 				         + "  The Goal applies to everyone, as soon as someone meets these conditions,\n"
 				         + "  they win ! (Even if it's someone else's turn).\n"
-				         + ANSI_GREEN + "\n@Keeper (Green Cards)@\n" + ANSI_RESET
+				         + Utility.ANSI_GREEN + "\n@Keeper (Green Cards)@\n" + Utility.ANSI_RESET
 				         + "- To play a Keeper, take it out of your hand and place it on the table in front of you,\n"
 				         + "  face up. Most Goals require you to have a particular pair of\n"
 				         + "  Keepers so playing a Keeper is always a good thing.\n");
 		
-		System.out.println("*----" + ANSI_RED_BACKGROUND + "@HOW TO WIN@" + ANSI_RESET +"-------------------------------------------------------*");
+		System.out.println("*----" + Utility.ANSI_RED_BACKGROUND + "@HOW TO WIN@" + Utility.ANSI_RESET +"-------------------------------------------------------*");
 		System.out.println("|	                                                                |");
 		System.out.println("|	The game continues until someone meets the conditions of the    |");
 		System.out.println("|	current Goal. That player wins instantly, no matter whose turn  |");
