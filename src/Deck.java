@@ -83,10 +83,7 @@ public class Deck {
 			this.goal = new Goals(i);
 			this.deckStack.push(goal);
 		}
-		//System.err.println("Deck Created Successfully!");
-		
 		this.deckStack= shuffle(this.deckStack);
-		//System.err.println("Deck Shuffled Successfully!");
 		
 		return this.deckStack;
 	}
