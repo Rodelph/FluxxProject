@@ -64,7 +64,7 @@ public class Utility {
 	{
 		System.out.println(Utility.ANSI_RED + " --------------------- Welcome to Fluxx Game --------------------- " );
 		System.out.println("|                                                                 |");
-		System.out.println("|   " + Utility.ANSI_RESET + "      Made By :: Naqi Amine && Kooli Firas Mohammed           " + Utility.ANSI_RED + "|");
+		System.out.println("|   " + Utility.ANSI_RESET + "      Made By :: Naqi Amine && Kooli Firas Mohamed            " + Utility.ANSI_RED + "|");
 		System.out.println("|                                                                 |");
 		System.out.println(" -----------------------------------------------------------------" + Utility.ANSI_RESET);
 		System.out.println("");
