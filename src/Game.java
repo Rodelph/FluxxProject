@@ -30,7 +30,7 @@ public class Game{
 	 * 						of players. Then we use the total number of players
 	 * 						to create players.
 	 * 
-	 * @throws FileNotFoundException :: For the JSON Files when instantiating the Deck object
+	 * @throws FileNotFoundException :: For the JSON Files when instantiating the Deck object.
 	 */
 	public Game(int _userInput) throws FileNotFoundException
 	{	
@@ -55,7 +55,16 @@ public class Game{
 		distributeThreeCards();
 	}
 	
+	/**
+	 * A function that tracks if the game is still running or not.
+	 * 
+	 * @return if the game is running or not
+	 */
+	public boolean isGameRunning() { return this.gameIsRunning; }
 	
+	/**
+	 * Distributes three cards at the beginning of the game.
+	 */
 	public void distributeThreeCards()
 	{
 		for(int i = 0; i < 3 ; i++)
@@ -69,6 +78,9 @@ public class Game{
 						 + " Press a key to continue !" + Utility.ANSI_RESET);
 	}
 	
+	/**
+	 * Prints the possible commands on the terminal upon a certain 'Key' click 
+	 */
 	public void printCommands()
 	{
 		System.out.println(Utility.ANSI_RED + "\nCommands :\n" + Utility.ANSI_RESET
@@ -81,7 +93,12 @@ public class Game{
 						 + "7- To commands press 'C'\n");
 	}
 	
-	// Draws a card from the deck stack
+	/**
+	 * Draws a card from the deck stack.
+	 * If the deck is empty we first add all the cards in the pile, then we shuffles them, and finally we add them to the deck stack.
+	 * 
+	 * @return card :: A popped card from the top of the stack, and added to the hand of the player
+	 */
 	public Card drawCard() 
 	{
 		if(this.deck.getDeckStack().isEmpty())
@@ -91,13 +108,22 @@ public class Game{
 	}
 	
 	/**
-	 * @param _card Throws a card to the pile
+	 * @param _card :: Throws a card to the pile (Adds it to the stack of piles)
 	 */
 	public void throwCard(Card _card) { this.pile.add(_card); }
 	
 	// Places goal and rule cards
 	// We keep the goal card object as a variable
 	// We check what kind of rule type is it and change the rules accordingly
+	
+	/**
+	 * A logic that handles placing Rule cards and Goal cards.
+	 * 
+	 * If the card is a Goal card, we keep it as an instance in order to get the Wincondition1 (String) and Wincondition2 (String)
+	 * to win the game, and to print them in the terminal upon Key press.
+	 * 
+	 * @param _card :: What the player throws
+	 */
 	public void placeCard(Card _card)
 	{
 		if(_card.getClass() == Goals.class)
@@ -130,9 +156,17 @@ public class Game{
 			}
 		}
 	}
-
-	//https://docs.oracle.com/javase/tutorial/uiswing/events/keylistener.html
-	//https://stackoverflow.com/questions/18590901/check-and-extract-a-number-from-a-string-in-java
+	
+	/**
+	 * Game loop of the game where everything is handled.
+	 * We used reggex to extract a number from a string since we are taking Letters (for commands), and (Numbers) to select cards.
+	 * 
+	 * 	https://docs.oracle.com/javase/tutorial/uiswing/events/keylistener.html
+	 *	https://stackoverflow.com/questions/18590901/check-and-extract-a-number-from-a-string-in-java
+	 * 
+	 * @param scan :: Scanner that takes the player input
+	 * @throws InterruptedException
+	 */
 	public void run(Scanner scan) throws InterruptedException 
 	{	
 		String _userInput = scan.next();
@@ -207,12 +241,12 @@ public class Game{
 							System.out.printf("You need to throw %d more time(s)\n", (this.currentPlayer.handSize() - this.handLimit));
 							int handIndex = scan.nextInt();
 							
-							if(handIndex > this.currentPlayer.handSize() - 1)
+							while(handIndex > this.currentPlayer.handSize() - 1)
 							{
 								System.out.println(Utility.ANSI_RED + "The card that you selected does not exist !" + Utility.ANSI_RESET);
 								handIndex = scan.nextInt();
 							}
-							this.throwCard(this.currentPlayer.throwCard(handIndex));
+							this.throwCard(this.currentPlayer.playCard(handIndex));
 							this.currentPlayer.showHand();
 						}
 						System.out.println(Utility.ANSI_CYAN + "Finished removing extra cards in hand !" + Utility.ANSI_RESET);
@@ -227,6 +261,11 @@ public class Game{
 						{
 							System.out.printf("You need to throw %d more time(s)\n", (this.currentPlayer.getKeepersOnTable().size() - this.keeperLimit));
 							int keeperIndex = scan.nextInt();
+							while(keeperIndex > this.currentPlayer.getKeepersOnTable().size() - 1)
+							{
+								System.out.println(Utility.ANSI_RED + "The card that you selected does not exist !" + Utility.ANSI_RESET);
+								keeperIndex = scan.nextInt();
+							}
 							this.throwCard(this.currentPlayer.getKeepersOnTable().get(keeperIndex));
 							this.currentPlayer.showHand();
 							this.currentPlayer.getKeepersOnTable().remove(keeperIndex);
@@ -234,19 +273,19 @@ public class Game{
 						System.out.println(Utility.ANSI_CYAN + "Finished removing extra keepers !" + Utility.ANSI_RESET);
 					}
 					
-					if(cardIndex >= this.currentPlayer.getCardsInHand().size())
-					{
-						System.out.println(Utility.ANSI_RED + "The index of the chosen card is bigger than the hand size ! "
-										 + "So the chosen card will be the last card on your right." + Utility.ANSI_RESET);	
-						cardIndex = scan.nextInt();
-					}
 					System.out.printf(Utility.ANSI_CYAN + "You are now in play phase. Please select the card to be played !\n" + Utility.ANSI_RESET);
 					this.game = GameState.PlayPhase;
 					break;
 					
-					
 				case PlayPhase:
 
+					while(cardIndex >= this.currentPlayer.getCardsInHand().size())
+					{
+						System.out.printf(Utility.ANSI_RED + "The index of the chosen card is non-existant ! "
+										 + "Please chose another number between [0 and %d]\n" + Utility.ANSI_RESET, (this.currentPlayer.getCardsInHand().size() - 1));	
+						cardIndex = scan.nextInt();
+					}
+					
 					for(int i = 1 ; i <= this.playLimit; i++)
 					{
 						if(this.currentPlayer.getCardsInHand().isEmpty())
@@ -256,7 +295,7 @@ public class Game{
 						}
 						
 						this.cardCache = this.currentPlayer.getCardsInHand().get(cardIndex);
-						this.currentPlayer.throwCard(cardIndex);
+						this.currentPlayer.playCard(cardIndex);
 						
 						if(this.cardCache.getClass() == Rules.class)
 						{
@@ -276,16 +315,21 @@ public class Game{
 							if(ruleType == RuleType.handLimitType)
 							{
 								this.handLimit = ruleCache.getHandLimit();
+								this.currentPlayer.showHand();
 								if((this.currentPlayer.handSize() > this.handLimit) == true)
 								{
 									while(this.currentPlayer.handSize() > this.handLimit)
 									{
 										System.out.printf("You need to throw %d more time(s)\n", (this.currentPlayer.handSize() - this.handLimit));
 										int cacheRuleIndex = scan.nextInt();
-										this.throwCard(this.currentPlayer.throwCard(cacheRuleIndex));
-										this.currentPlayer.showHand();
+										while(cacheRuleIndex > this.currentPlayer.handSize() - 1)
+										{
+											System.out.printf(Utility.ANSI_RED + "You can not select the card with the number %d since you do not have it !\nPlease insert a new number from 0 to %d!" + Utility.ANSI_RESET, cacheRuleIndex, (this.currentPlayer.handSize()- 1));
+											cacheRuleIndex = scan.nextInt();
+										}
+											
+										this.throwCard(this.currentPlayer.playCard(cacheRuleIndex));
 									}
-									
 									System.out.println(Utility.ANSI_CYAN + "Finished removing extra cards in hand. Choose the corresponding number of the card to play !" + Utility.ANSI_RESET);
 								}
 							}
@@ -301,6 +345,11 @@ public class Game{
 									while(this.currentPlayer.getKeepersOnTable().size() > this.keeperLimit)
 									{
 										int cacheKeeperIndex = scan.nextInt();
+										while(cacheKeeperIndex > this.currentPlayer.getKeepersOnTable().size() - 1)
+										{
+											System.out.printf(Utility.ANSI_RED + "You can not select the card with the number %d since you do not have it !\nPlease insert a new number from 0 to %d!" + Utility.ANSI_RESET, cacheKeeperIndex, (this.currentPlayer.getKeepersOnTable().size()- 1));
+											cacheKeeperIndex = scan.nextInt();
+										}
 										this.throwCard(this.currentPlayer.getKeepersOnTable().get(cacheKeeperIndex));
 										this.currentPlayer.getKeepersOnTable().remove(cacheKeeperIndex);
 										this.currentPlayer.showKeepers();
@@ -312,18 +361,23 @@ public class Game{
 							if(ruleType == RuleType.playLimitType)
 							{
 								this.playLimit = ruleCache.getPlayLimit();
+								this.currentPlayer.showHand();
 								{
 									for(int j = 1 ; j < this.playLimit ; j++)
 									{
-										System.out.printf("You need to play %d more time(s)\n", (this.playLimit - j));
+										System.out.printf("You need to play %d more time(s)\n", (this.playLimit - j - 1));
 										if(this.currentPlayer.handSize() == 0)
 										{
 											System.out.println("You don't have enough cards to play anymore !");
 											break;
 										}
 										System.out.println("Choosing card phase for play limit");
-										this.currentPlayer.showHand();
 										cardIndex = scan.nextInt();
+										while(cardIndex > this.currentPlayer.handSize() - 1)
+										{
+											System.out.printf(Utility.ANSI_RED + "You can not select the card with the number %d since you do not have it !\nPlease insert a new number from 0 to %d!" + Utility.ANSI_RESET, cardIndex, (this.currentPlayer.handSize()- 1));
+											cardIndex = scan.nextInt();
+										}
 										this.game = GameState.ChoseCardPhase;
 									}
 								}
@@ -383,6 +437,11 @@ public class Game{
 		}
 	}
 	
+	/**
+	 * Game winning method. It loops through the player's Keepers, and checks if condition 1 and condition 2 are met.
+	 * 
+	 * @return boolean (if the player has both keepers or no)
+	 */
 	public boolean gameWinningCondition()
 	{
 		for(int i = 0 ; i < this.currentPlayer.getKeepersOnTable().size(); i++)
@@ -396,12 +455,23 @@ public class Game{
 		return (this.winCon1Satisfied && this.winCon2Satisfied);
 	}
 	
+	/**
+	 * A function the prints the rules of the game. 
+	 * 
+	 * - Play Limit
+	 * - Hand Limit
+	 * - Keeper Limit
+	 * - Draw Limit
+	 */
 	public void showRules()
 	{
 		System.out.printf(Utility.ANSI_CYAN_BACKGROUND + "The current rules are :\n" + Utility.ANSI_RESET + Utility.ANSI_YELLOW +"Hand Limit :: %d\n"
 				        + "Play Limit :: %d\nKeeper Limit :: %d\nDraw Limit :: %d\n" + Utility.ANSI_RESET, this.handLimit, this.playLimit, this.keeperLimit, this.drawLimit);
 	}
 	
+	/**
+	 * A function that prints the current goal in play, and what are the two conditions to be met (Keepers needed for winning).
+	 */
 	public void showGoal()
 	{
 		if(this.goalToAchieve == null)
@@ -411,7 +481,9 @@ public class Game{
 				        + Utility.ANSI_RED_BACKGROUND +"Keeper Number 1 :: %s\nKeeper Number 2 :: %s\n" + Utility.ANSI_RESET, this.goalToAchieve.getName(), this.goalToAchieve.getWinCondition1(), this.goalToAchieve.getWinCondition2());
 	}
 	
-	// Display Input
+	/**
+	 * A function that prints the rules of the game and how the game is setup (Took this from the manual).
+	 */
 	public void showHelp()
 	{
 		System.out.println(Utility.ANSI_CYAN + "\n@Setup\n" + Utility.ANSI_RESET
@@ -445,7 +517,4 @@ public class Game{
 		System.out.println("|	                                                                |");
 		System.out.println("*-----------------------------------------------------------------------*");  
 	}
-
-	public boolean isGameRunning() { return this.gameIsRunning; }
-
 }

@@ -15,24 +15,21 @@ public class Rules extends Card
 	private int drawLimit, keeperLimit,
 				handLimit, playLimit;
 	
-	//https://docs.oracle.com/javaee/7/api/javax/json/package-summary.html
-	//https://www.baeldung.com/java-string-to-enum
-	
 	/**
+	 * This function reads from the Rule Json file and creates objects based on its content.
+	 * It also generates a rule card while taking in consideration the type of the rule.
+	 * Example :: 'If the rule card is a limit hand type, only the handLimit variable will be initialised.'
 	 * 
 	 * @param i
 	 * @throws FileNotFoundException
-	 * 
 	 */
 	public Rules(int i) throws FileNotFoundException
 	{
-		this.jsonObjParser = Utility.jsonFileReader(this.jsonReader, this.jsonObj, Utility.ruleDataJsonFile, "rule", i);
+		this.jsonObjParser  = Utility.jsonFileReader(this.jsonReader, this.jsonObj, Utility.ruleDataJsonFile, "rule", i);
 		this.cardTypeParser = this.jsonObjParser.getString("ruleType");
-		
-		this._type = RuleType.valueOf(this.cardTypeParser);
-		
-		this.ruleType  = this._type.toString();
-		this.ruleName  = jsonObjParser.getString("name");
+		this._type          = RuleType.valueOf(this.cardTypeParser);
+		this.ruleType       = this._type.toString();
+		this.ruleName       = jsonObjParser.getString("name");
 		
 		switch(this._type)
 		{
@@ -57,15 +54,33 @@ public class Rules extends Card
 		this.jsonObjParser = null;
 	}
 	
+	/**
+	 * @return The drawLimit of the Rule Card
+	 */
 	public int getDrawLimit()   { return this.drawLimit; }
-
+	
+	/**
+	 * @return The keeperLimit of the Rule Card
+	 */
 	public int getKeeperLimit() { return this.keeperLimit; }
 
+	/**
+	 * @return The handLimit of the Rule Card
+	 */
 	public int getHandLimit()   { return this.handLimit; }
 
+	/**
+	 * @return The playLimit of the Rule Card
+	 */
 	public int getPlayLimit()   { return this.playLimit; }
 	
+	/**
+	 * @return The rule type of the Rule as a String
+	 */
 	public String getRuleType() { return this.ruleType; }
 	
+	/**
+	 * @return The name of the Rule as a String
+	 */
 	public String getName()     { return this.ruleName; }
 }

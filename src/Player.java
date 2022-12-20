@@ -6,6 +6,12 @@ public class Player {
 	private ArrayList<Keepers> keepersOnSideTable;
 	private ArrayList<Card> cardsInHand;
 	
+	/**
+	 * Constuctor that will take a string as the player name, and initializes the ArrayList for
+	 * keepers on his side, and his hand.
+	 * 
+	 * @param _playerName
+	 */
 	public Player(String _playerName)
 	{
 		this.playerName = _playerName;
@@ -13,6 +19,9 @@ public class Player {
 		this.cardsInHand = new ArrayList<Card>();
 	}
 	
+	/**
+	 * Prints the cards in the hand of the player.
+	 */
 	public void showHand()
 	{
 		System.out.println(Utility.ANSI_RED + "\nYour hand contains the follwing card(s)" + Utility.ANSI_RESET);
@@ -35,10 +44,10 @@ public class Player {
 				System.out.printf(Utility.ANSI_PURPLE + "%d - %s\n" + Utility.ANSI_RESET,i, goal.getName());
 			}
 		}
-		
-		
 	}
-	
+	/**
+	 * Prints the keepers on the side of the player
+	 */
 	public void showKeepers()
 	{
 		System.out.println(Utility.ANSI_RED + "\nYour posses the following Keeper(s)" + Utility.ANSI_RESET);
@@ -57,7 +66,13 @@ public class Player {
 		}
 	}
 	
-	public Card throwCard(int index)
+	/**
+	 * 
+	 * @param index :: Input from the player (Scanner) that choses the index of the cards.
+	 * 
+	 * @return The card wanted to be played.
+	 */
+	public Card playCard(int index)
 	{
 		Card cacheCard = this.cardsInHand.get(index);
 		this.cardsInHand.remove(index);
@@ -65,12 +80,23 @@ public class Player {
 		return cacheCard;
 	}
 	
+	/**
+	 * @return How many cards in the player's hand.
+	 */
 	public int handSize() { return this.cardsInHand.size(); }
-	
 
+	/**
+	 * @return The name of the player.
+	 */
 	public String getPlayerName() { return playerName; }
 
+	/**
+	 * @return Keepers as ArrayList on the side of the player.
+	 */
 	public ArrayList<Keepers> getKeepersOnTable() { return keepersOnSideTable; }
 
+	/**
+	 * @return Cards in had as ArrayList possessed by the player.
+	 */
 	public ArrayList<Card> getCardsInHand() { return cardsInHand; }	
 }

@@ -3,38 +3,9 @@ import java.util.Scanner;
 
 public class execute
 {
-
-	public static void printIntro()
-	{
-		System.out.println(Utility.ANSI_RED + " --------------------- Welcome to Fluxx Game --------------------- " );
-		System.out.println("|                                                                 |");
-		System.out.println("|   " + Utility.ANSI_RESET + "      Made By :: Naqi Amine && Kooli Firass Mohammed          " + Utility.ANSI_RED + "|");
-		System.out.println("|                                                                 |");
-		System.out.println(" -----------------------------------------------------------------" + Utility.ANSI_RESET);
-		System.out.println("");
-	}
-	
-	public static void loadingAnimation() throws  InterruptedException
-	{
-		System.out.print(Utility.ANSI_RED + "\n@ The game is going to start in " + Utility.ANSI_RESET + Utility.ANSI_RED_BACKGROUND + "3" + Utility.ANSI_RESET);
-		Thread.sleep(1000);
-		System.out.print(" " + Utility.ANSI_YELLOW_BACKGROUND + "2" + Utility.ANSI_RESET + " ");
-		Thread.sleep(1000);
-		System.out.print(Utility.ANSI_CYAN_BACKGROUND  + "1"  + Utility.ANSI_RESET);
-		Thread.sleep(1000);
-		System.out.print(" .");
-		Thread.sleep(1000);
-		System.out.print(".");
-		Thread.sleep(1000);
-		System.out.print(".");
-		Thread.sleep(1000);
-		System.out.print(" " + Utility.ANSI_GREEN_BACKGROUND + "GO FLUX !!" + Utility.ANSI_RESET + Utility.ANSI_RED + " @\n" + Utility.ANSI_RESET);
-		Thread.sleep(1000);
-	}
-	
 	public static void main(String[] args) throws FileNotFoundException, InterruptedException
 	{	
-		printIntro();
+		Utility.printIntro();
 		
 		Game game;
 		int numberofplayers = 0;
@@ -47,7 +18,7 @@ public class execute
 				numberofplayers = scan.nextInt(); 
 			}
 			
-			loadingAnimation();
+			Utility.loadingAnimation();
 			
 			game = new Game(numberofplayers);
 
