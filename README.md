@@ -10,4 +10,10 @@ Project Made By :
 | Kooli Firas Mohamed  |  0595437   |
 | Naqi Amine           |  0562497   |
 
+You can run the game with this command :
+
+```
+java -jar Fluxx.jar
+```
+
 We hope that you like it. <3
