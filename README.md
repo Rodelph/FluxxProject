@@ -1,5 +1,8 @@
 # Fluxx Game Project
 
+<img src="./res/game_ui.png" width="80%">
+
+<br>
 Project Made By :
 
 | Names                | StudentID  |
@@ -22,4 +25,3 @@ To do that please follow these steps :
     <li> Select the jar file from the required folder.
     <li> Click and Apply and Ok.
 </ol>
-
