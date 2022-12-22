@@ -1,6 +1,5 @@
-import java.io.FileInputStream;
+
 import java.io.FileNotFoundException;
-import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 
@@ -8,51 +7,45 @@ public class Rules extends Card
 {	
 	public static final int totalRules = 16;
 	
-	private String ruleName, cardTypeParser, ruleType;
 	private RuleType _type;
 	private JsonReader jsonReader;
 	private JsonObject jsonObj, jsonObjParser;
 	
+	private String ruleName, cardTypeParser, ruleType;
 	private int drawLimit, keeperLimit,
 				handLimit, playLimit;
 	
-	//https://www.baeldung.com/java-string-to-enum
-	
+	/**
+	 * This function reads from the Rule Json file and creates objects based on its content.
+	 * It also generates a rule card while taking in consideration the type of the rule.
+	 * Example :: 'If the rule card is a limit hand type, only the handLimit variable will be initialised.'
+	 * 
+	 * @param i
+	 * @throws FileNotFoundException
+	 */
 	public Rules(int i) throws FileNotFoundException
 	{
-		this.jsonReader = Json.createReader(new FileInputStream("./src/RulesData.json"));
-		
-		this.jsonObj = this.jsonReader.readObject();
-		this.jsonReader.close();
-		
-		this.jsonObjParser = this.jsonObj.getJsonObject("rule" + i);
+		this.jsonObjParser  = Utility.jsonFileReader(this.jsonReader, this.jsonObj, Utility.ruleDataJsonFile, "rule", i);
 		this.cardTypeParser = this.jsonObjParser.getString("ruleType");
-		
-		this._type = Card.RuleType.valueOf(this.cardTypeParser);
+		this._type          = RuleType.valueOf(this.cardTypeParser);
+		this.ruleType       = this._type.toString();
+		this.ruleName       = jsonObjParser.getString("name");
 		
 		switch(this._type)
 		{
 			case drawLimitType:
-				this.ruleType = this._type.toString();
-				this.ruleName = jsonObjParser.getString("name");
 				this.drawLimit = jsonObjParser.getInt("limitValue");
 				break;
 			
 			case keeperLimitType:
-				this.ruleType = this._type.toString();
-				this.ruleName = jsonObjParser.getString("name");
 				this.keeperLimit = jsonObjParser.getInt("limitValue");
 				break;
 				
 			case handLimitType:
-				this.ruleType = this._type.toString();
-				this.ruleName = jsonObjParser.getString("name");
 				this.handLimit = jsonObjParser.getInt("limitValue");
 				break;
 				
 			case playLimitType:
-				this.ruleType = this._type.toString();
-				this.ruleName = jsonObjParser.getString("name");
 				this.playLimit = jsonObjParser.getInt("limitValue");
 				break;
 		}
@@ -61,15 +54,33 @@ public class Rules extends Card
 		this.jsonObjParser = null;
 	}
 	
+	/**
+	 * @return The drawLimit of the Rule Card
+	 */
 	public int getDrawLimit()   { return this.drawLimit; }
-
+	
+	/**
+	 * @return The keeperLimit of the Rule Card
+	 */
 	public int getKeeperLimit() { return this.keeperLimit; }
 
+	/**
+	 * @return The handLimit of the Rule Card
+	 */
 	public int getHandLimit()   { return this.handLimit; }
 
+	/**
+	 * @return The playLimit of the Rule Card
+	 */
 	public int getPlayLimit()   { return this.playLimit; }
 	
+	/**
+	 * @return The rule type of the Rule as a String
+	 */
 	public String getRuleType() { return this.ruleType; }
 	
-	public String getName() { return this.ruleName; }
+	/**
+	 * @return The name of the Rule as a String
+	 */
+	public String getName()     { return this.ruleName; }
 }
