@@ -14,14 +14,14 @@ public class execute
 			while (numberofplayers < 2 || numberofplayers > 6)
 			{
 				System.out.println(Utility.ANSI_CYAN + "\n@ Before starting the game please insert the number of players (Between 2 and 6 players) @\n" + Utility.ANSI_RESET);
-				System.out.print(Utility.ANSI_RED_BACKGROUND + "The amount of players is going to be ::" + Utility.ANSI_RESET + " ");
+				System.out.print(Utility.ANSI_RED_BACKGROUND + "The number of players is going to be ::" + Utility.ANSI_RESET + " ");
 				numberofplayers = scan.nextInt(); 
 			}
 			
 			Utility.loadingAnimation();
 			
 			game = new Game(numberofplayers);
-
+			
 			while(game.isGameRunning())
 			{
 				game.run(scan);
