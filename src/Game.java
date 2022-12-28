@@ -279,13 +279,16 @@ public class Game{
 					
 					if (phaseMessageIsNeeded) //////////////
 					{
-						System.out.printf(Utility.ANSI_CYAN + "You are now in play phase. Please select the card to be played !\n" + Utility.ANSI_RESET);
+						System.out.println("\nYou will now switch to the Next Phase " + Utility.ANSI_RED 
+						         + "press a number key to continue !" + Utility.ANSI_RESET);
 					}
 					this.game = GameState.PlayPhase;
 					break;
 					
 				case PlayPhase:
-
+					
+					System.out.printf(Utility.ANSI_CYAN + "You are now in play phase. Please select the card to be played !\n" + Utility.ANSI_RESET);
+					
 					while(cardIndex >= this.currentPlayer.getCardsInHand().size())
 					{
 						System.out.printf(Utility.ANSI_RED + "The index of the chosen card is non-existant ! "
