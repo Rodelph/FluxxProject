@@ -42,8 +42,9 @@ We hope that you like it. <3
     Things that you need to be aware of regarding this implementation:
         - At any given time, you can always press "C" to get the commands list. 
         - Always press a key number to confirm so the game moves on. 
-        - In case the hand-limit was lowered during another player's turn to a value that is less than your cards in hand, you will be asked to discard the extra ones at the start of your turn to match the new hand-limit. 
-        Same logic applies for keeper cards.
+        - In case the hand-limit was lowered during another player's turn to a value that is less than your cards in hand, you will be asked to 
+          discard the extra ones at the start of your turn to match the new hand-limit. 
+        - Same logic applies for keeper cards.
         - In case you set a new play limit that is lower than the current one and you have passed the new number of plays, your turn will end immedialty.
     
     Finally, have fun and send us your feedback! :)
