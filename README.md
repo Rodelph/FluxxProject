@@ -16,6 +16,8 @@ You can run the game with this command :
 java -jar Fluxx.jar
 ```
 
+Or double click the Fluxx.bat file.
+
 We hope that you like it. <3
 
 <br>
