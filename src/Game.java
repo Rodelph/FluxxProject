@@ -410,7 +410,6 @@ public class Game
 							System.out.println("You don't have enough cards to play anymore !");
 							break;
 						}
-						System.out.println("Choose a card phase for play limit");
 					}
 				}
 			}
@@ -469,7 +468,6 @@ public class Game
 				this.currentPlayer.getKeepersOnTable().remove(this.cardIndex);
 			}
 			System.out.println(Utility.ANSI_CYAN + "Finished removing extra keepers !" + Utility.ANSI_RESET);
-		
 		}
 	}
 	
