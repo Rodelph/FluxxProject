@@ -2,8 +2,7 @@
 
 <img src="./res/game_ui.png" width="80%">
 
-<br>
-Project Made By :
+#### Project Made By :
 
 | Names                | StudentID  |
 |        :---:         |    :---:   |
