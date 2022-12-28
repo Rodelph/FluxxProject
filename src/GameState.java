@@ -3,7 +3,7 @@
  */
 public enum GameState {
 	DrawPhase,
-	ChoseCardPhase,
+	ChosePhase,
 	PlayPhase,
 	EndTurnPhase
 }
