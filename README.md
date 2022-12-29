@@ -17,14 +17,12 @@
 | Naqi Amine           |  0562497   |
 
 
-### You can run the game with this command :
+#### You can run the game with this command :
 
 ```
 java -jar Fluxx.jar
 ```
-### Or double click the Fluxx.bat file.
-
-<br>
+#### Or double click the Fluxx.bat file.
 
 # How To Play Our Implementation:  
 ```
