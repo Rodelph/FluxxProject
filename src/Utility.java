@@ -8,7 +8,7 @@ import javax.json.JsonReader;
 public class Utility {
 	
 	/**
-	 * 'Ansi Codes' to print with colored text in the terminal
+	 * 'Ansi Codes' to print with coloured text in the terminal
 	 * https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
 	 */
 	public static final String ANSI_RESET 				= "\u001B[0m" ;

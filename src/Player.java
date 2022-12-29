@@ -7,7 +7,7 @@ public class Player {
 	private ArrayList<Card> cardsInHand;
 	
 	/**
-	 * Constuctor that will take a string as the player name, and initializes the ArrayList for
+	 * Constructor that will take a string as the player name, and initialises the ArrayList for
 	 * keepers on his side, and his hand.
 	 * 
 	 * @param _playerName
@@ -68,7 +68,7 @@ public class Player {
 	
 	/**
 	 * 
-	 * @param index :: Input from the player (Scanner) that choses the index of the cards.
+	 * @param index :: Input from the player (Scanner) that chooses the index of the cards.
 	 * 
 	 * @return The card wanted to be played.
 	 */

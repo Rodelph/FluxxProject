@@ -19,6 +19,7 @@ public class Goals extends Card
 	public Goals(int i) throws FileNotFoundException
 	{	
 		this.jsonObjParser = Utility.jsonFileReader(this.jsonReader, this.jsonObj, Utility.goalDataJsonFile, "goal", i);
+		
 		this.goalName      = this.jsonObjParser.getString("goalName");
 		this.winCondition1 = this.jsonObjParser.getString("winCondition1");
 		this.winCondition2 = this.jsonObjParser.getString("winCondition2");

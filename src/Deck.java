@@ -56,16 +56,14 @@ public class Deck {
 		 _cards.copyInto(temporaryArray);
 		
 		for (int i=0; i < _cards.size(); i++)
-		{
-			//I chose this instead of the random function to avoid importing packages and for simplicity 
-			//I created a new instance of Random in every iteration for better Randomness                
+		{              
 			Random rand = new Random(); 
 			int firstRandomIndex =  rand.nextInt(_cards.size());
 			int secondRandomIndex = rand.nextInt(_cards.size());
 			temporaryArray= arrayElementsSwapper(temporaryArray, firstRandomIndex, secondRandomIndex);
 		}
 		
-		for (int i=0; i < _cards.size(); i++) // Pushing the shuffled array's cards into the return stack 
+		for (int i=0; i < _cards.size(); i++)
 			resultStack.push(temporaryArray[i]); 
 		
 		return resultStack;

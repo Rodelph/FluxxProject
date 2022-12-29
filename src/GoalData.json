@@ -137,5 +137,10 @@
 		"goalName" : "Goal Card: Toast",
 		"winCondition1" : "The Toaster",
 		"winCondition2" : "Bread"
+	},
+	
+	"totalNumberOfGoals0":
+	{
+		"totalGoals" : 20
 	}
 }
