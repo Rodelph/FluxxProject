@@ -207,6 +207,16 @@ public class Game
 				this.printCommands();
 				System.out.println(Utility.ANSI_RED + "Press a key number to continue !" + Utility.ANSI_RESET);
 			}
+			else if((_userInput.toLowerCase()).equals("ak"))
+			{
+				for(int i = 0; i < this.players.size(); i++)
+				{
+					System.out.printf(Utility.ANSI_CYAN + "\n%s has the following keepers :\n" + Utility.ANSI_RESET, this.players.get(i).getPlayerName());
+					for(int j = 0; j < this.players.get(i).getKeepersOnTable().size(); j++)
+						System.out.println(Utility.ANSI_GREEN + "\t- " + this.players.get(i).getKeepersOnTable().get(j).getName() + Utility.ANSI_RESET);
+				}
+				System.out.println(Utility.ANSI_RED + "Press a key number to continue !" + Utility.ANSI_RESET);
+			}
 			else
 				System.out.println(Utility.ANSI_RED + "You have pressed a non valid command !" + Utility.ANSI_RESET);
 		}
@@ -216,18 +226,19 @@ public class Game
 			{
 				case DrawPhase:
 					draw();
+					System.out.println("\nYou will now switch to Playing Card Phase " + Utility.ANSI_RED + "press a key to continue !" + Utility.ANSI_RESET);
 					this.game = GameState.PlayPhase;
 					break;
 					
 				case PlayPhase:
-					System.out.printf(Utility.ANSI_CYAN + "You are now in Choosing Phase. Please select the card to be played !\n" + Utility.ANSI_RESET);
+					System.out.println(Utility.ANSI_CYAN + "You are now in Playing Phase. Please select the card to be played !" + Utility.ANSI_RESET);
 					play(scan);
-					System.out.println(Utility.ANSI_RED + "Press a key number to continue !" + Utility.ANSI_RESET);
+					System.out.println(Utility.ANSI_CYAN + "Press a key to continue" + Utility.ANSI_RESET);
 					this.game = GameState.EndTurnPhase;
 					break;
 					
 				case EndTurnPhase:
-					System.out.println(Utility.ANSI_RED + "You will now end your turn, please press a key number to end your turn !" + Utility.ANSI_RESET);
+					System.out.println(Utility.ANSI_RED + "You will now end your turn, please press a key to end your turn !" + Utility.ANSI_RESET);
 					this.indexPlayer++;
 					if(this.indexPlayer == this.numberOfPlayers)
 						this.indexPlayer = 0;
@@ -250,9 +261,6 @@ public class Game
 			this.currentPlayer.getCardsInHand().add(drawCard());
 		
 		this.currentPlayer.showHand();
-
-		System.out.println("\nYou will now switch to Chosing Card Phase " + Utility.ANSI_RED 
-				         + "press a key to continue !" + Utility.ANSI_RESET);
 	}
 	
 	/** 
