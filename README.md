@@ -22,7 +22,13 @@
 ```
 java -jar Fluxx.jar
 ```
-#### Or double click the Fluxx.bat file.
+#### Or double click the Fluxx.bat file if you use windows.
+
+#### For linux/mac users you can use the shell file.
+```
+sudo chmod +x run.sh
+./run.sh
+```
 
 # How To Play Our Implementation:  
 ```
