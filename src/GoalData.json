@@ -29,7 +29,7 @@
 	
 	"goal5":
 	{
-		"goalName" : "Goal Card: Peace (No War)",
+		"goalName" : "Goal Card: Cold War",
 		"winCondition1" : "Peace",
 		"winCondition2" : "War"
 	},
@@ -58,7 +58,7 @@
 	"goal9":
 	{
 		"goalName" : "Goal Card: Bed Time",
-		"winCondition1" : "Bed",
+		"winCondition1" : "Sleep",
 		"winCondition2" : "Time"
 	},
 	
@@ -72,8 +72,8 @@
 	"goal11":
 	{
 		"goalName" : "Goal Card: Hearts and Minds",
-		"winCondition1" : "Hearts",
-		"winCondition2" : "Minds"
+		"winCondition1" : "Love",
+		"winCondition2" : "The Brain"
 	},
 	
 	"goal12":
@@ -99,9 +99,9 @@
 	
 	"goal15":
 	{
-		"goalName" : "Goal Card: The Brain and Tv",
+		"goalName" : "Goal Card: Brainwashing",
 		"winCondition1" : "The Brain",
-		"winCondition2" : "TV"
+		"winCondition2" : "Television"
 	},
 	
 	"goal16":
@@ -122,7 +122,7 @@
 	{
 		"goalName" : "Goal Card: The Rocket Science",
 		"winCondition1" : "The Rocket",
-		"winCondition2" : "Brain"
+		"winCondition2" : "The Brain"
 	},
 	
 	"goal19":
