@@ -22,9 +22,9 @@ public class Utility {
 	public static final String ANSI_GREEN_BACKGROUND 	= "\u001B[42m";
 	public static final String ANSI_YELLOW_BACKGROUND 	= "\u001B[43m";
 	
-	public static final String keeperDataJsonFile   	= "./src/KeeperData.json";
-	public static final String goalDataJsonFile   		= "./src/GoalData.json"  ;
-	public static final String ruleDataJsonFile			= "./src/RulesData.json" ;
+	public static final String keeperDataJsonFile   	= "./src/Json/KeeperData.json";
+	public static final String goalDataJsonFile   		= "./src/Json/GoalData.json"  ;
+	public static final String ruleDataJsonFile			= "./src/Json/RulesData.json" ;
 	
 	/**
 	 * https://docs.oracle.com/javaee/7/api/javax/json/package-summary.html
@@ -62,12 +62,13 @@ public class Utility {
 	 */
 	public static void printIntro()
 	{
-		System.out.println(Utility.ANSI_RED + " --------------------- Welcome to Fluxx Game --------------------- " );
+		System.out.println(Utility.ANSI_RED + 
+				           " --------------------- Welcome to Fluxx Game --------------------- " );
 		System.out.println("|                                                                 |");
-		System.out.println("|   " + Utility.ANSI_RESET + "      Made By :: Naqi Amine && Kooli Mohamed Firas             " + Utility.ANSI_RED + "|");
+		System.out.println("|         Made By :: Naqi Amine && Kooli Mohamed Firas            |");
 		System.out.println("|                                                                 |");
-		System.out.println(" -----------------------------------------------------------------" + Utility.ANSI_RESET);
-		System.out.println("");
+		System.out.println(" ----------------------------------------------------------------- " 
+		                   + Utility.ANSI_RESET);
 	}
 	
 	/**
