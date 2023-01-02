@@ -19,15 +19,15 @@ public class Deck {
 		createDeck();
 	}
 
-	/**
-	 * This function's objective is to simply swap 2 elements in a given array 
-	 * made of Card elements. 
-	 * 
-	 * @param array_to_swap
-	 * @param position_of_element_1
-	 * @param position_of_element_2
-	 * @return
-	 */
+/**
+ * This function's objective is to simply swap 2 elements in a given array 
+ * made of Card elements.
+ * 
+ * @param _array2Swap
+ * @param _positionOfElement1
+ * @param _positionOfElement2
+ * @return
+ */
 	public Card[] arrayElementsSwapper(Card[] _array2Swap, int _positionOfElement1, int _positionOfElement2)
 	{	
 		Card temp;

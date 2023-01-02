@@ -1,4 +1,6 @@
-
+/**
+ *	A class to hold all type of cards in the deck.
+ */
 public class Card 
 {
 	/**
