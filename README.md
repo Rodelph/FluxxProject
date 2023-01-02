@@ -39,9 +39,8 @@ Here is a small guide on how to enjoy it:
     - Start by going to the "Fluxx.jar" file location.
     - Open the CMD from there.
     - Run the command mentioned above "java -jar Fluxx.jar"
-    - The game should launch next.
+    - The game will launch next.
     - You should be prompted to provide the number of players, which should be at least 2 and at most 6. 
-    - Input the players' names.
     - Once done, wait for a few seconds for the cards troll to wake up and shuffle the deck.
     - The first player will automatically start and will a receive a new drawn card.
     - Press any key number to continue. 
